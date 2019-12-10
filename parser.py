@@ -1,5 +1,6 @@
 import re
 class parser:
+#Read and Parsing Commands in a Symbol Form
 
     A_COMMAND = 1
     C_COMMAND = 2
@@ -57,7 +58,7 @@ class parser:
         return ""
 
     def comp(self):
-        #Returns the Jump Mnemonic in the Current C-Command
+        #Returns the Comp Mnemonic in the Current C-Command
         if self.commandType()==self.C_COMMAND:
             comp=self.cutout_comment(self.line)
             #In Comp Parts, There are Three Kinds of Parts
@@ -74,6 +75,7 @@ class parser:
         return ""
 
     def jump(self):
+        #Returns the Jump Mnemonic in the Current C-Command
         if self.commandType()==self.C_COMMAND:
             jump=self.cutout_comment(self.line)
             jump=jump.split(";")
